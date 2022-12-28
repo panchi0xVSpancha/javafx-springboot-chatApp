@@ -34,6 +34,34 @@
             </VBox>
          </children>
       </HBox>
+      <HBox>
+         <children>
+            <Label text="Selected :  ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="detailsLabel" text="None">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox>
+         <children>
+            <Label text="he assigned to chat :  ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="detailsLabel1" text="None">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
       <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addToChat" text="ADD" />
       <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#deleteFromChat" text="DELETE" />
    </children>

@@ -234,7 +234,7 @@
     -fx-pref-width:240px ;
     -fx-background-color: primary-light;
 }
-.category-item:hover{
+.category-item:hover, .category-item:focused{
     -fx-background-color: primary;
 }
 

@@ -4,7 +4,9 @@ import com.example.chatapp.model.entity.User;
 import com.example.chatapp.model.service.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
@@ -19,8 +21,23 @@ public class Chat1Global extends AbstractController{
 @FXML
 private VBox vContainer;
 
+@FXML
+private Button addBtn;
+
+@FXML
+private Button deleteBtn;
+
+@FXML
+private Label detailsLabel;
+
+    @FXML
+    private Label detailsLabel1;
+
+
 @Autowired
     private UserService userService;
+
+private User selectedUser;
 
     @FXML
     private void initialize(){
@@ -30,13 +47,27 @@ private VBox vContainer;
     }
 
     public void addToChat() {
-    }
-
-    private void addUserToChat(User user){
+        System.out.println("add button function \""+ selectedUser.getName()+"\" adding");
+        System.out.println(selectedUser.getName());
+        System.out.println(selectedUser.getLoginId());
+        System.out.println(selectedUser.getRole());
+//        System.out.println(selectedUser.getChat());
+        userService.updateUserChat(selectedUser, User.Chats.c2);
 
     }
     public void deleteFromChat() {
+        System.out.println("delete button function");
     }
+
+    private void reload(){
+        vContainer.getChildren().clear();
+        userService.findAll().stream()
+                .forEach(user-> vContainer.getChildren().add(new UserInChat(user)));
+    }
+//    private void addUserToChat(User user){
+//
+//    }
+//
 
 
 
@@ -51,14 +82,22 @@ private VBox vContainer;
             getChildren().addAll(icon,name);
             getStyleClass().add("category-item");
 
-//            setOnMouseClicked(event-> {
-//                System.out.println("clicked");
-//                if(event.getClickCount()==2){
-//                    CategoryEdit.showView(category, consumer);
-//                }
-//            });
+            setOnMouseClicked(event-> {
+                System.out.println("clicked");
+                if(event.getClickCount()==1){
+                    System.out.println("Selected user:"+ user.getName());
+                    System.out.println("he assigned to chat :"+ user.getChat());
+                    detailsLabel.setText(user.getName());
+                    detailsLabel1.setText(user.getChat().toString());
+                    selectedUser=user;
+                }
+            });
 
         }
     }
+
+
+
+
 
 }

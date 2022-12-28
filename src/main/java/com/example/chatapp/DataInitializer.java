@@ -27,6 +27,7 @@ public class DataInitializer {
             admin.setLoginId("aa");
             admin.setName("Ann");
             admin.setRole(User.Role.Admin);
+            admin.setChat(User.Chats.c0);
 //            admin.setPassword("admin");
             userRepo.save(admin);
 
@@ -34,6 +35,7 @@ public class DataInitializer {
             John.setLoginId("john");
             John.setName("John");
             John.setRole(User.Role.GeneralUser);
+            John.setChat(User.Chats.c0);
 //            admin.setPassword("admin");
             userRepo.save(John);
 
@@ -41,6 +43,7 @@ public class DataInitializer {
             Christina.setLoginId("Christina");
             Christina.setName("Christina");
             Christina.setRole(User.Role.GeneralUser);
+            Christina.setChat(User.Chats.c0);
 //            admin.setPassword("admin");
             userRepo.save(Christina);
         };
