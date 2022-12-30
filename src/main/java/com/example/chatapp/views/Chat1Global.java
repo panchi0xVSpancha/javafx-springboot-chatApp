@@ -18,7 +18,9 @@ import java.util.function.Consumer;
 
 @Controller
 public class Chat1Global extends AbstractController{
-@FXML
+    @FXML
+    private VBox dContainer;
+    @FXML
 private VBox vContainer;
 
 @FXML
@@ -39,36 +41,42 @@ private Label detailsLabel;
 
 private User selectedUser;
 
+
+
+private String currentChat="chat1";
+
     @FXML
     private void initialize(){
         vContainer.getChildren().clear();
-        userService.findAll().stream()
+        userService.findNotChatUsersList(currentChat).stream()
                 .forEach(user-> vContainer.getChildren().add(new UserInChat(user)));
+        userService.findChatUsersList(currentChat).stream()
+                .forEach(user-> dContainer.getChildren().add(new UserInChat(user)));
     }
 
     public void addToChat() {
         System.out.println("add button function \""+ selectedUser.getName()+"\" adding");
         System.out.println(selectedUser.getName());
-        System.out.println(selectedUser.getLoginId());
+        System.out.println(selectedUser.getUsername());
         System.out.println(selectedUser.getRole());
-//        System.out.println(selectedUser.getChat());
-        userService.updateUserChat(selectedUser, User.Chats.c2);
+//        selectedUser.setChat1(true);
+        userService.updateUserChat(selectedUser.getUsername(),currentChat);
 
     }
     public void deleteFromChat() {
         System.out.println("delete button function");
+        userService.removeUserFromChat(selectedUser.getUsername(),currentChat);
     }
 
     private void reload(){
         vContainer.getChildren().clear();
-        userService.findAll().stream()
+        userService.findNotChatUsersList(currentChat).stream()
                 .forEach(user-> vContainer.getChildren().add(new UserInChat(user)));
     }
 //    private void addUserToChat(User user){
 //
 //    }
 //
-
 
 
     private class UserInChat extends HBox {
@@ -86,9 +94,9 @@ private User selectedUser;
                 System.out.println("clicked");
                 if(event.getClickCount()==1){
                     System.out.println("Selected user:"+ user.getName());
-                    System.out.println("he assigned to chat :"+ user.getChat());
+                    System.out.println("he assigned to chat1 :"+ user.isChat1());
                     detailsLabel.setText(user.getName());
-                    detailsLabel1.setText(user.getChat().toString());
+                    detailsLabel1.setText(String.valueOf(user.isChat2()));
                     selectedUser=user;
                 }
             });

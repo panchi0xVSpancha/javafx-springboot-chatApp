@@ -22,7 +22,7 @@ import java.io.IOException;
 @Controller
 public class Login {
 
-    private static User loginUser;
+    private User loginUser;
     @Autowired
     private LoginService service;
     @FXML
@@ -36,6 +36,9 @@ public class Login {
 
     @FXML
     private Label message;
+
+    @Autowired
+    private MainFrame mainFrame;
 
 //    @FXML
 //    private PasswordField password;
@@ -59,15 +62,17 @@ public class Login {
     }
 
     @FXML
-    private void login() {
+    public void login() {
         try {
 //            loginUser = service.login(loginId.getText(), password.getText());
             loginUser = service.login(loginId.getText());
+            System.out.println("ishan");
 
-            MainFrame.show();
+            mainFrame.show(loginUser);
             close(); //close login view
         }catch (ChatException e){
             message.setText(e.getMessage());
+
         }catch (Exception e){
             e.printStackTrace();
             close();
@@ -88,4 +93,6 @@ public class Login {
             e.printStackTrace();
         }
     }
+
+
 }

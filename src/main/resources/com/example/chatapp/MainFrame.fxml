@@ -43,7 +43,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox id="Chat2" fx:id="Chat2" layoutX="10.0" layoutY="10.0" onMouseClicked="#clickMenu" styleClass="side-bar-menu" stylesheets="@style/application.css">
+            <VBox id="Chat2" fx:id="Chat2"  onMouseClicked="#clickMenu" styleClass="side-bar-menu" stylesheets="@style/application.css">
                <children>
                   <HBox>
                      <children>

@@ -1,6 +1,7 @@
 package com.example.chatapp.views;
 
 import com.example.chatapp.ChatApplication;
+import com.example.chatapp.model.entity.User;
 import com.example.chatapp.utils.Menu;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +12,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MainFrame  {
 
     @FXML
@@ -19,11 +22,18 @@ public class MainFrame  {
     @FXML
     private StackPane contentView;
 
-    public static void show() {
+    @FXML
+    private VBox Chat1Global;
+    public User loginUser=new User();
+
+    public void show(User loginUser) {
         try {
+
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(ChatApplication.class.getResource("MainFrame.fxml"));
             stage.setScene((new Scene(root)));
+            this.loginUser=loginUser;
+            System.out.println("Anuki"+this.loginUser);
             stage.show();
 
         }catch (Exception e){
@@ -49,4 +59,14 @@ public class MainFrame  {
         }
 
     }
+
+    public void getLoginUser(User loginUser){
+        this.loginUser=loginUser;
+        System.out.println("login user : "+loginUser.getUsername());
+    }
+
+//    @FXML
+//    private void initialize(){
+////        Chat1Global.setVisible(false);
+//    }
 }

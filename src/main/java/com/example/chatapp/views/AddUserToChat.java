@@ -26,7 +26,7 @@ import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
-@Controller
+@Component
 public class AddUserToChat extends AbstractController {
 
 
@@ -43,9 +43,17 @@ public class AddUserToChat extends AbstractController {
     private UserService userService;
 
 
+    public static List<User> usersList;
 
-   public static void showView(){
+    private String currentChat;
+
+
+
+   public void showView(List<User> usersList){
        try {
+           AddUserToChat.usersList =usersList;
+           System.out.println("user list is empty : "+usersList.isEmpty());
+           System.out.println("user list is : "+this.usersList);
            System.out.println("loginUser");
            Stage stage = new Stage(StageStyle.UNDECORATED);
            stage.initModality(Modality.APPLICATION_MODAL);
@@ -55,13 +63,20 @@ public class AddUserToChat extends AbstractController {
        }catch (Exception e){
            e.printStackTrace();
        }
+//       return this.usersList;
    }
 
 
     @FXML
     private void initialize(){
         vContainer.getChildren().clear();
-        vContainer.getChildren().add(new ItemAddUserToChat());
+        System.out.println("userlist in initialize : " + this.usersList );
+        this.usersList.stream()
+                .forEach(user-> {
+                    vContainer.getChildren().add(new AddUserToChat.ItemAddUserToChat(user));
+                    System.out.println(user.getName());
+                });
+//        vContainer.getChildren().add(new ItemAddUserToChat());
         System.out.println("initialized");
 //        userService.findAll().stream().forEach(user -> vContainer.getChildren().add(new ItemAddUserToChat(user)));
 
@@ -77,14 +92,19 @@ public class AddUserToChat extends AbstractController {
     public void add(ActionEvent actionEvent) {
     }
 
+    public void getData(List<User> userslist){
+
+    }
+
     private class ItemAddUserToChat extends HBox{
         private User user;
-        public ItemAddUserToChat(){
-            //        public ItemAddUserToChat(User user){
+        public ItemAddUserToChat(User user){
+
                     Label name = new Label();
-                name.setText("Anuki Anuki");
+                name.setText(user.getName());
                 getChildren().addAll(name);
                 getStyleClass().add("item");
             }
         }
+
 }

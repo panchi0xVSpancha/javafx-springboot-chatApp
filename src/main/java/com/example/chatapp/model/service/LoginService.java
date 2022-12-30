@@ -11,23 +11,13 @@ import org.springframework.util.StringUtils;
 public class LoginService {
     @Autowired
     private UserRepo repo;
+    public User login(String username) throws ChatException {
 
-//    public User login(String loginId, String password) throws ChatException {
-    public User login(String loginId) throws ChatException {
-
-        if(StringUtils.isEmpty(loginId)){
+        if(StringUtils.isEmpty(username)){
             throw new ChatException("Please enter Login Id.");
         }
-
-//        if(StringUtils.isEmpty(password)){
-//            throw new ChatException("Please enter Password.");
-//        }
-        User account = repo.findById(loginId)
+        User account = repo.findByUsername(username)
                 .orElseThrow(()->new ChatException("Please check your Login Id"));
-
-//        if(!password.equals(account.getPassword())){
-//            throw new ChatException("Please check your password.");
-//        }
 
         return account;
     }

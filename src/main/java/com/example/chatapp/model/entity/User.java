@@ -1,38 +1,37 @@
 package com.example.chatapp.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Data;
 
-@Entity
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "User")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
+
     @Id
-    private String loginId;
+    private ObjectId id;
+    @Indexed(unique = true)
+    private String username;
     private String name;
     private Role role;
+    private boolean chat1;
+    private boolean chat2;
 
 //    private String password;
-
-//    private boolean chat1;
-//    private boolean chat2;
-
-    private Chats chat;
-//    c0 <- No chat
-//    c2 <- Chat 2
-//    c3 <- Chat 3
-//    c4 <- Chat 2, 3 both
-
-
 
 
     public enum Role{
         Admin, GeneralUser
     }
 
-    public enum Chats{
-        c0,c2,c3,c4
-    }
+
 
 
 
