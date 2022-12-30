@@ -24,17 +24,14 @@ public class Chat2 extends AbstractController{
     private StackPane contentView;
     @FXML
     private VBox addUserToChatBtn;
-
     @Autowired
     private UserService userService;
-
     @Autowired
     private AddUserToChat addUserToChat;
     private String currentChat="chat1";
 
     @FXML
     public void addUserToChat() {
-        System.out.println("add user to list function");
         List<User> users =userService.findNotChatUsersList(currentChat);
         addUserToChat.showView(users);
     }

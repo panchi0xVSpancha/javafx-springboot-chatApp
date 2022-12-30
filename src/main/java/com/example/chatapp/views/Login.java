@@ -22,23 +22,19 @@ import java.io.IOException;
 @Controller
 public class Login {
 
-    private User loginUser;
-    @Autowired
-    private LoginService service;
     @FXML
     private Button closeBtn;
-
     @FXML
     private Button loginBtn;
-
     @FXML
     private TextField loginId;
-
     @FXML
     private Label message;
-
     @Autowired
     private MainFrame mainFrame;
+    @Autowired
+    private LoginService service;
+    private User loginUser;
 
 //    @FXML
 //    private PasswordField password;
@@ -66,7 +62,6 @@ public class Login {
         try {
 //            loginUser = service.login(loginId.getText(), password.getText());
             loginUser = service.login(loginId.getText());
-            System.out.println("ishan");
 
             mainFrame.show(loginUser);
             close(); //close login view
@@ -89,7 +84,6 @@ public class Login {
             controller.attachEvent();
             stage.show();
         } catch (IOException e) {
-            System.out.println("failed to load Login");
             e.printStackTrace();
         }
     }

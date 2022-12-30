@@ -23,13 +23,13 @@ public class ChatApplication extends Application{
         applicationContext.close();
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
     @Override
     public void start(Stage stage) throws Exception {
         Login.loadView(stage);
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 
     public static ConfigurableApplicationContext getApplicationContext() {

@@ -65,8 +65,5 @@ public class UserService {
     public List<User> findNotChatUsersList(String chat){
         return userRepo.findNotChatUsersList(chat);
     }
-//    public User addToChat(String chat, String username){
-//        return userRepo.addToChat(chat,username);
-//    }
 
 }

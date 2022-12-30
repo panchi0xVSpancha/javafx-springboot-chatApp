@@ -21,7 +21,6 @@ public class MainFrame  {
     private VBox sideBar;
     @FXML
     private StackPane contentView;
-
     @FXML
     private VBox Chat1Global;
     public User loginUser=new User();
@@ -33,7 +32,6 @@ public class MainFrame  {
             Parent root = FXMLLoader.load(ChatApplication.class.getResource("MainFrame.fxml"));
             stage.setScene((new Scene(root)));
             this.loginUser=loginUser;
-            System.out.println("Anuki"+this.loginUser);
             stage.show();
 
         }catch (Exception e){
@@ -60,13 +58,9 @@ public class MainFrame  {
 
     }
 
+
     public void getLoginUser(User loginUser){
         this.loginUser=loginUser;
-        System.out.println("login user : "+loginUser.getUsername());
     }
 
-//    @FXML
-//    private void initialize(){
-////        Chat1Global.setVisible(false);
-//    }
 }

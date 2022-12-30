@@ -39,14 +39,7 @@ public class AddUserToChat extends AbstractController {
     @FXML
     private VBox vContainer;
 
-    @Autowired
-    private UserService userService;
-
-
     public static List<User> usersList;
-
-    private String currentChat;
-
 
 
    public void showView(List<User> usersList){
@@ -63,7 +56,6 @@ public class AddUserToChat extends AbstractController {
        }catch (Exception e){
            e.printStackTrace();
        }
-//       return this.usersList;
    }
 
 
@@ -74,12 +66,7 @@ public class AddUserToChat extends AbstractController {
         this.usersList.stream()
                 .forEach(user-> {
                     vContainer.getChildren().add(new AddUserToChat.ItemAddUserToChat(user));
-                    System.out.println(user.getName());
                 });
-//        vContainer.getChildren().add(new ItemAddUserToChat());
-        System.out.println("initialized");
-//        userService.findAll().stream().forEach(user -> vContainer.getChildren().add(new ItemAddUserToChat(user)));
-
     }
 
     public void itemClicked(MouseEvent mouseEvent) {
@@ -92,9 +79,6 @@ public class AddUserToChat extends AbstractController {
     public void add(ActionEvent actionEvent) {
     }
 
-    public void getData(List<User> userslist){
-
-    }
 
     private class ItemAddUserToChat extends HBox{
         private User user;
