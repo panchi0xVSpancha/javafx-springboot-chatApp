@@ -8,22 +8,37 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import static com.example.chatapp.views.Login.getLoggedUser;
 
 @Component
 public class MainFrame  {
 
     @FXML
+    private Label recentChatLabel1;
+    @FXML
+    private Label recentChatLabel2;
+    @FXML
+    private Label recentChatLabel3;
+    @FXML
+    private VBox Chat1Global;
+    @FXML
+    private VBox Chat2;
+    @FXML
+    private VBox Chat3;
+    @FXML
     private VBox sideBar;
     @FXML
     private StackPane contentView;
-    @FXML
-    private VBox Chat1Global;
     public User loginUser=new User();
+
 
     public void show(User loginUser) {
         try {
@@ -57,10 +72,18 @@ public class MainFrame  {
         }
 
     }
-
-
-    public void getLoginUser(User loginUser){
-        this.loginUser=loginUser;
-    }
+//        @FXML
+//    private void initialize(){
+//        User user =getLoggedUser();
+//            System.out.println(user);
+//            if(!user.isChat1()){
+//                Chat2.getChildren().clear();
+//                Chat2.getStyleClass().add("side-bar-menu-no-styles");
+//            }
+//            if (!user.isChat2()){
+//                Chat3.getChildren().clear();
+//                Chat3.getStyleClass().add("side-bar-menu-no-styles");
+//            }
+//    }
 
 }

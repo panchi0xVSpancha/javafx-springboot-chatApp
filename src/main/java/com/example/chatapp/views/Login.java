@@ -34,7 +34,12 @@ public class Login {
     private MainFrame mainFrame;
     @Autowired
     private LoginService service;
-    private User loginUser;
+    public User loginUser;
+
+    public static User user;
+    public static User getLoggedUser(){
+        return user;
+    }
 
 //    @FXML
 //    private PasswordField password;
@@ -62,6 +67,7 @@ public class Login {
         try {
 //            loginUser = service.login(loginId.getText(), password.getText());
             loginUser = service.login(loginId.getText());
+            user=service.login(loginId.getText());
 
             mainFrame.show(loginUser);
             close(); //close login view

@@ -3,9 +3,7 @@ package com.example.chatapp.utils;
 public enum Menu {
     Chat1Global("POS Dashboard......Chat1Global"),
     Chat2("Tiny POS"),
-    Chat3("Sales History"),
-    Category("Category Management"),
-    Product("Products Management");
+    Chat3("Sales History");
 
     private  String title;
 

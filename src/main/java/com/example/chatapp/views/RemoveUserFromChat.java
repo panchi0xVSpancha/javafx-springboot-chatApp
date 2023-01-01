@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 @Controller
-public class AddUserToChat extends AbstractController {
+public class RemoveUserFromChat extends AbstractController {
 
 
     @FXML
@@ -43,7 +43,6 @@ public class AddUserToChat extends AbstractController {
     private MessageService messageService;
     @Autowired
     private MainFrame mainFrame;
-
     @Autowired
     private Intermediate intermediate;
     public static List<User> usersList;
@@ -53,88 +52,68 @@ public class AddUserToChat extends AbstractController {
 
    public void showView(List<User> usersList, String currentChat){
        try {
-           AddUserToChat.usersList =usersList;
-           AddUserToChat.currentChat=currentChat;
+           RemoveUserFromChat.usersList =usersList;
+           RemoveUserFromChat.currentChat=currentChat;
            Stage stage = new Stage(StageStyle.UNDECORATED);
            stage.initModality(Modality.APPLICATION_MODAL);
-           FXMLLoader loader = new FXMLLoader(ChatApplication.class.getResource("AddUserToChat.fxml"));
+           FXMLLoader loader = new FXMLLoader(ChatApplication.class.getResource("RemoveUserFromChat.fxml"));
 
            loader.setControllerFactory(ChatApplication.getApplicationContext()::getBean);
            Parent view=loader.load();
            stage.setScene(new Scene(view));
-//           AddUserToChat controller =loader.getController();
-//           controller.init(saveHandler);
            stage.show();
        }catch (Exception e){
            e.printStackTrace();
        }
    }
 
-//    private void init(Consumer<Chat2> saveHandler) {
-//       this.saveHandler=saveHandler;
-//    }
-
-
     @FXML
     private void initialize(){
         vContainer.getChildren().clear();
         this.usersList.stream()
                 .forEach(user-> {
-                    vContainer.getChildren().add(new AddUserToChat.ItemAddUserToChat(user));
+                    vContainer.getChildren().add(new RemoveUserFromChat.ItemRemoveUserToFomChat(user));
                 });
+    }
+
+    @FXML
+    public void cancel() {
+        selectedUser=null;
+        cancelBtn.getScene().getWindow().hide();
+
+    }
+
+    @FXML
+    public void remove() {
+        if(selectedUser!=null){
+            userService.removeUserFromChat(selectedUser.getUsername(),currentChat);
+
+            MessageBody messageBody= new MessageBody();
+            messageBody.setMessage(selectedUser.getUsername()+" has been removed from the chat.");
+            messageBody.setType(MessageBody.Type.special);
+            messageBody.setGroup(MessageBody.Group.valueOf(currentChat));
+            messageBody.setSender(mainFrame.loginUser.getUsername());
+            messageBody.setTime(new Date().toString());
+            messageService.sendMessage(messageBody);
+            intermediate.reloadChats();
+
+            selectedUser = null;
+            reload();
+        }
     }
 
     private void reload(){
         vContainer.getChildren().clear();
-        userService.findNotChatUsersList(currentChat).stream()
+        userService.findChatUsersList(currentChat).stream()
                 .forEach(user-> {
-                    vContainer.getChildren().add(new AddUserToChat.ItemAddUserToChat(user));
+                    vContainer.getChildren().add(new RemoveUserFromChat.ItemRemoveUserToFomChat(user));
                 });
     }
 
 
-    public void itemClicked(MouseEvent mouseEvent) {
-    }
-
-    @FXML
-    public void cancel(ActionEvent actionEvent) {
-       selectedUser=null;
-       cancelBtn.getScene().getWindow().hide();
-
-    }
-
-    @FXML
-    public void add() {
-       if(selectedUser!=null){
-           userService.updateUserChat(selectedUser.getUsername(),currentChat);
-
-           MessageBody messageBody= new MessageBody();
-           messageBody.setMessage(selectedUser.getUsername()+" has been added to the chat.");
-           messageBody.setType(MessageBody.Type.special);
-           messageBody.setGroup(MessageBody.Group.valueOf(currentChat));
-           messageBody.setSender(mainFrame.loginUser.getUsername());
-           messageBody.setTime(new Date().toString());
-           messageService.sendMessage(messageBody);
-            if(currentChat.equals("chat1")){
-                System.out.println("chat1");
-                intermediate.reloadChats();
-
-            }else if(currentChat.equals("chat2")){
-                System.out.println("chat2");
-                intermediate.reloadChats();
-            }
-
-           selectedUser = null;
-           reload();
-       }
-
-
-    }
-
-
-    private class ItemAddUserToChat extends HBox{
+    private class ItemRemoveUserToFomChat extends HBox{
         private User user;
-        public ItemAddUserToChat(User user){
+        public ItemRemoveUserToFomChat(User user){
             Label name = new Label();
             name.setText(user.getName());
             getChildren().addAll(name);

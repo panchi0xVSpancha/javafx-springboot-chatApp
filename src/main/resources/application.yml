@@ -21,3 +21,8 @@ spring:
   data:
     mongodb:
       uri: mongodb+srv://anuishan:9897@cluster0.m0ejaho.mongodb.net/chatApp?retryWrites=true&w=majority
+
+
+
+  main:
+    allow-circular-references: true

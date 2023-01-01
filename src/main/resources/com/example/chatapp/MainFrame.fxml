@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
 
-
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-frame" stylesheets="@style/application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.chatapp.views.MainFrame">
    <children>
       <VBox fx:id="sideBar" styleClass="side-bar" stylesheets="@style/application.css">
@@ -28,22 +27,22 @@
                            <children>
                               <Pane maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" prefHeight="80.0" prefWidth="80.0" styleClass="item-avatar">
                                  <children>
-                                    <Label layoutX="26.0" layoutY="16.0" styleClass="item-avatar-label" text="H" textAlignment="CENTER" />
+                                    <Label layoutX="26.0" layoutY="16.0" styleClass="item-avatar-label" text="G" textAlignment="CENTER" />
                                  </children>
                               </Pane>
                            </children>
                         </VBox>
                         <VBox>
                            <children>
-                              <Label styleClass="item-name" text="Harry Potter" />
-                              <Label styleClass="item-message" text="Hello! Are you there?  Hello! Are you there?  Hello! Are you there?  " />
+                              <Label styleClass="item-name" text="Global Chat" />
+                              <Label fx:id="recentChatLabel1" styleClass="item-message" text="Hello! Are you there?  Hello! Are you there?  Hello! Are you there?  " />
                            </children>
                         </VBox>
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <VBox id="Chat2" fx:id="Chat2"  onMouseClicked="#clickMenu" styleClass="side-bar-menu" stylesheets="@style/application.css">
+            <VBox id="Chat2" fx:id="Chat2" onMouseClicked="#clickMenu" styleClass="side-bar-menu" stylesheets="@style/application.css">
                <children>
                   <HBox>
                      <children>
@@ -51,15 +50,15 @@
                            <children>
                               <Pane maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" prefHeight="80.0" prefWidth="80.0" styleClass="item-avatar">
                                  <children>
-                                    <Label layoutX="26.0" layoutY="16.0" styleClass="item-avatar-label" text="E" textAlignment="CENTER" />
+                                    <Label layoutX="26.0" layoutY="16.0" styleClass="item-avatar-label" text="C" textAlignment="CENTER" />
                                  </children>
                               </Pane>
                            </children>
                         </VBox>
                         <VBox>
                            <children>
-                              <Label styleClass="item-name" text="Emma Wotson" />
-                              <Label styleClass="item-message" text="Good Morning!" />
+                              <Label styleClass="item-name" text="Chat 1" />
+                              <Label fx:id="recentChatLabel2" styleClass="item-message" text="Good Morning!" />
                            </children>
                         </VBox>
                      </children>
@@ -74,15 +73,15 @@
                            <children>
                               <Pane maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" prefHeight="80.0" prefWidth="80.0" styleClass="item-avatar">
                                  <children>
-                                    <Label layoutX="26.0" layoutY="16.0" styleClass="item-avatar-label" text="A" textAlignment="CENTER" />
+                                    <Label layoutX="26.0" layoutY="16.0" styleClass="item-avatar-label" text="C" textAlignment="CENTER" />
                                  </children>
                               </Pane>
                            </children>
                         </VBox>
                         <VBox>
                            <children>
-                              <Label styleClass="item-name" text="Ron Weasley" />
-                              <Label styleClass="item-message" text="Let's meet as 2pm in main hall.  I am waiting for you." />
+                              <Label styleClass="item-name" text="Chat 2" />
+                              <Label fx:id="recentChatLabel3" styleClass="item-message" text="Let's meet as 2pm in main hall.  I am waiting for you." />
                            </children>
                         </VBox>
                      </children>
