@@ -8,4 +8,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Chat1Message extends Message{
     private MessageBody.Group group = MessageBody.Group.chat1;
 
+
 }

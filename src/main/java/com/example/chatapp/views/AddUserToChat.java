@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 @Controller
-public class AddUserToChat extends AbstractController {
+public class AddUserToChat  {
 
 
     @FXML
@@ -113,15 +113,12 @@ public class AddUserToChat extends AbstractController {
            messageBody.setType(MessageBody.Type.special);
            messageBody.setGroup(MessageBody.Group.valueOf(currentChat));
            messageBody.setSender(mainFrame.loginUser.getUsername());
-           messageBody.setTime(new Date().toString());
            messageService.sendMessage(messageBody);
             if(currentChat.equals("chat1")){
-                System.out.println("chat1");
-                intermediate.reloadChats();
+                intermediate.reloadChats("chat1");
 
             }else if(currentChat.equals("chat2")){
-                System.out.println("chat2");
-                intermediate.reloadChats();
+                intermediate.reloadChats("chat2");
             }
 
            selectedUser = null;

@@ -11,8 +11,6 @@ public class MessageBody {
     private String sender;
     private Type type;
     private Group group;
-    private String time;
-
 
     public enum Group{
         general , chat1 , chat2

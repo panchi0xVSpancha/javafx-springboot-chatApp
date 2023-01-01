@@ -16,7 +16,13 @@ public class Intermediate {
     @Autowired
     private Chat3 chat3;
 
-    public void reloadChats(){
-        chat2.reload();
+    public void reloadChats(String chatName){
+        if (chatName.equals("chat1")){
+            chat2.reload();
+        }else{
+            chat3.reload();
+        }
+
+
     }
 }

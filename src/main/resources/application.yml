@@ -1,26 +1,7 @@
-#spring:
-#  datasource:
-#    url: jdbc:hsqldb:mem:testDB
-#    username: sa
-#    password: sa
-#  jpa:
-#    hibernate:
-#      ddl-auto: create
-#    properties:
-#      hibernate:
-#        show_sql: true
-#        format_sql: true
-
-#spring:
-#  data:
-#    mongodb:
-#      uri: mongodb+srv://anuishan:9897@cluster0.m0ejaho.mongodb.net/chatApp?retryWrites=true&w=majority
-#
-
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://anuishan:9897@cluster0.m0ejaho.mongodb.net/chatApp?retryWrites=true&w=majority
+      uri: mongodb+srv://sqnc3d:sqnc3d@cluster0.qtrsif3.mongodb.net/chatApp
 
 
 

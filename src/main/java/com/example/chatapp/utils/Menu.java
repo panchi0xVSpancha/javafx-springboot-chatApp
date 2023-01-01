@@ -18,4 +18,8 @@ public enum Menu {
     public String getFxml(){
         return String.format("%s.fxml",name());
     }
+
+    public String getName(){
+        return name();
+    }
 }

@@ -75,8 +75,22 @@
     -fx-padding: 0 20 0 20;
 }
 
+.side-bar-menu-clicked{
+    -fx-alignment:center-left;
+    -fx-spacing: 5px;
+    -fx-pref-height: 130px;
+    -fx-pref-width:490px;
+    -fx-min-width:80px;
+    -fx-padding: 0 20 0 20;
+    -fx-background-color: secondary;
+}
+
 .side-bar-menu:hover {
    -fx-background-color: secondary;
+}
+
+.side-bar-menu:focused{
+    -fx-background-color: secondary;
 }
 
 /*.side-bar-menu:hover .label, .side-bar-menu:hover SVGPath{*/

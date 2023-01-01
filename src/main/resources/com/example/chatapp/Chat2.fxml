@@ -23,14 +23,14 @@
                            <children>
                               <Pane maxHeight="80.0" maxWidth="80.0" minHeight="80.0" minWidth="80.0" prefHeight="80.0" prefWidth="80.0" styleClass="item-avatar">
                                  <children>
-                                    <Label layoutX="26.0" layoutY="16.0" styleClass="item-avatar-label" text="H" textAlignment="CENTER" />
+                                    <Label layoutX="26.0" layoutY="16.0" styleClass="item-avatar-label" text="C" textAlignment="CENTER" />
                                  </children>
                               </Pane>
                            </children>
                         </VBox>
                         <VBox alignment="CENTER_LEFT">
                            <children>
-                              <Label styleClass="item-name" text="Harry Potter" />
+                              <Label styleClass="item-name" text="Chat 1" />
                            </children>
                         </VBox>
                         <VBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">

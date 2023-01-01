@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MessageService {
@@ -29,7 +30,6 @@ public class MessageService {
             message.setType(messageBody.getType());
             message.setGroup(messageBody.getGroup());
             message.setSender(messageBody.getSender());
-            message.setTime(messageBody.getTime());
             generalMessageRepo.save(message);
         }else if(messageBody.getGroup().equals(MessageBody.Group.chat1)) {
             Chat1Message message =new Chat1Message();
@@ -37,7 +37,6 @@ public class MessageService {
             message.setType(messageBody.getType());
             message.setGroup(messageBody.getGroup());
             message.setSender(messageBody.getSender());
-            message.setTime(messageBody.getTime());
             chat1MessageRepo.save(message);
         }else if(messageBody.getGroup().equals(MessageBody.Group.chat2)){
             Chat2Message message =new Chat2Message();
@@ -45,7 +44,6 @@ public class MessageService {
             message.setType(messageBody.getType());
             message.setGroup(messageBody.getGroup());
             message.setSender(messageBody.getSender());
-            message.setTime(messageBody.getTime());
             chat2MessageRepo.save(message);
         }
 
@@ -73,5 +71,21 @@ public class MessageService {
             return list;
         }
     }
+
+    public String getLastMessageChat1(){
+         Optional<Chat1Message> message =chat1MessageRepo.findFirstByOrderByCreatedTimeDesc();
+         if(message.isPresent()){
+             return message.get().getMessage();
+         }else {
+             return "";
+         }
+    }
+
+    public String func(){
+        return "message service calling";
+    }
+
+
+
 
 }

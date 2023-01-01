@@ -36,7 +36,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-public class Chat2 extends AbstractController{
+public class Chat2 {
 
 
     @FXML
@@ -86,7 +86,6 @@ public class Chat2 extends AbstractController{
             messageBody.setType(MessageBody.Type.normal);
             messageBody.setGroup(MessageBody.Group.valueOf(currentChat));
             messageBody.setSender(mainFrame.loginUser.getUsername());
-            messageBody.setTime(new Date().toString());
             messageService.sendMessage(messageBody);
             messageBoxTf.clear();
             reload();
@@ -174,8 +173,6 @@ public class Chat2 extends AbstractController{
 
 
 
-//            System.out.println("\n\n message.getSender :" + message.getSender());
-//            System.out.println("mainFrame.loginUser.getUsername :" + message.getSender());
 //            if(message.getType().equals(MessageBody.Type.normal)){
 //                if(message.getSender().toString().equals(mainFrame.loginUser.getUsername().toString())){
 //                    getStyleClass().add("myItem");

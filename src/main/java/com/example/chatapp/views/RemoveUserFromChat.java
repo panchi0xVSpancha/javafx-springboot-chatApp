@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 @Controller
-public class RemoveUserFromChat extends AbstractController {
+public class RemoveUserFromChat  {
 
 
     @FXML
@@ -93,9 +93,8 @@ public class RemoveUserFromChat extends AbstractController {
             messageBody.setType(MessageBody.Type.special);
             messageBody.setGroup(MessageBody.Group.valueOf(currentChat));
             messageBody.setSender(mainFrame.loginUser.getUsername());
-            messageBody.setTime(new Date().toString());
             messageService.sendMessage(messageBody);
-            intermediate.reloadChats();
+            intermediate.reloadChats(currentChat);
 
             selectedUser = null;
             reload();

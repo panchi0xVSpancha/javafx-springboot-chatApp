@@ -26,7 +26,6 @@ public class UserService {
 
 
     public String updateUserChat(String username,String chat){
-        System.out.println("username "+username);
         Optional<User> optionalUser = userRepo.findByUsername(username);
         if(optionalUser.isPresent()){
             if(chat.equals("chat1")){

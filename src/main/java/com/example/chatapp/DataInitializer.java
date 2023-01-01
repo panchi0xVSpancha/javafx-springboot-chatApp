@@ -16,17 +16,17 @@
 //        return args->{
 //
 //            User admin = new User();
-//            admin.setUsername("Oliver");
-//            admin.setName("Oliver");
-//            admin.setRole(User.Role.GeneralUser);
-//            admin.setChat1(false);
-//            admin.setChat2(false);
+//            admin.setUsername("ann");
+//            admin.setName("Ann");
+//            admin.setRole(User.Role.Admin);
+//            admin.setChat1(true);
+//            admin.setChat2(true);
 ////            admin.setPassword("admin");
 //            userRepo.save(admin);
 //
 //            User John = new User();
-//            John.setUsername("Will");
-//            John.setName("William Alexander");
+//            John.setUsername("Rosi");
+//            John.setName("Rosi Alexander");
 //            John.setRole(User.Role.GeneralUser);
 //            John.setChat1(false);
 //            John.setChat2(false);
@@ -34,8 +34,8 @@
 //            userRepo.save(John);
 //
 //            User Christina = new User();
-//            Christina.setUsername("Elizabeth");
-//            Christina.setName("Elizabeth Watson");
+//            Christina.setUsername("Ami");
+//            Christina.setName("Ami");
 //            Christina.setRole(User.Role.GeneralUser);
 //            Christina.setChat1(false);
 //            Christina.setChat2(false);
