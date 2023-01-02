@@ -39,7 +39,7 @@
 <!--                   username is considered as the loginId of user-->
 
 <!--                  <Label text="Password" GridPane.rowIndex="2" />-->
-                  <TextField fx:id="loginId" promptText="Enter Login ID" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="loginId" promptText="Enter Your user name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 <!--                  <PasswordField fx:id="password" promptText="Enter Passoword" GridPane.columnIndex="1" GridPane.rowIndex="2" />-->
                   <HBox GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>

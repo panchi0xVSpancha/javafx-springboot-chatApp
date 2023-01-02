@@ -16,8 +16,8 @@
 //        return args->{
 //
 //            User admin = new User();
-//            admin.setUsername("ann");
-//            admin.setName("Ann");
+//            admin.setUsername("Clara Johns");
+//            admin.setName("Clara Johns");
 //            admin.setRole(User.Role.Admin);
 //            admin.setChat1(true);
 //            admin.setChat2(true);
@@ -25,8 +25,8 @@
 //            userRepo.save(admin);
 //
 //            User John = new User();
-//            John.setUsername("Rosi");
-//            John.setName("Rosi Alexander");
+//            John.setUsername("Godfird Ronald");
+//            John.setName("Godfrid Ronald");
 //            John.setRole(User.Role.GeneralUser);
 //            John.setChat1(false);
 //            John.setChat2(false);
@@ -34,8 +34,8 @@
 //            userRepo.save(John);
 //
 //            User Christina = new User();
-//            Christina.setUsername("Ami");
-//            Christina.setName("Ami");
+//            Christina.setUsername("john");
+//            Christina.setName("John");
 //            Christina.setRole(User.Role.GeneralUser);
 //            Christina.setChat1(false);
 //            Christina.setChat2(false);
